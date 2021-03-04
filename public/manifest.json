@@ -32,5 +32,5 @@
     ],
     "persistent": false
   },
-  "permissions": ["*://www.google.com/*", "*://www.google.fr/*"]
+  "permissions": ["tabs","*://www.google.com/*", "*://www.google.fr/*"]
 }

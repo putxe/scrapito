@@ -11,12 +11,21 @@ import {
   SENT_TO_SERVER_SUCCEEDED,
 } from './types';
 
-chrome.tabs.onUpdated.addListener((tabId, _, tab) => {
-  if (tab && tab.url?.match('(http|https):\/\/www\.google\.(com|fr)\/search')) {
-    chrome.pageAction.show(tabId);
+const filterGooglePages = (tab: chrome.tabs.Tab) => {
+  if (!tab.id) return;
+  if (tab && tab.url?.match('(http|https)://www.google.(com|fr)/search')) {
+    chrome.pageAction.show(tab.id);
   } else {
-    chrome.pageAction.hide(tabId);
+    chrome.pageAction.hide(tab.id);
   }
+};
+
+chrome.tabs.onUpdated.addListener((tabId, _, tab) => {
+  filterGooglePages(tab);
+});
+
+chrome.tabs.onCreated.addListener(tab => {
+  filterGooglePages(tab);
 });
 
 const sendToServer = async (content: ScrapeContent[]) => {
