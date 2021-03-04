@@ -29,18 +29,20 @@ chrome.tabs.onCreated.addListener(tab => {
 });
 
 const sendToServer = async (content: ScrapeContent[]) => {
-  const successMessage: SentToServerSucceeded = { type: SENT_TO_SERVER_SUCCEEDED };
+  const api = 'https://scrapito-server.poutch.workers.dev/scrape';
+  const options: RequestInit = {
+    method: 'post',
+    mode: 'no-cors',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(content),
+  };
   try {
     if (!content || content.length <= 0) return;
-    const result = await fetch('https://scrapito-server.poutch.workers.dev/scrape', {
-      method: 'post',
-      mode: 'no-cors',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(content),
-    });
+    await fetch(api, options);
+    const successMessage: SentToServerSucceeded = { type: SENT_TO_SERVER_SUCCEEDED };
     chrome.runtime.sendMessage(successMessage);
   } catch (error) {
     const failedMessage: SentToServerFailed = { type: SENT_TO_SERVER_FAILED, error };
