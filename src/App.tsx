@@ -4,11 +4,12 @@ import './App.css';
 
 const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div className="app">
+      <header className="app-header">
+        <img src={logo} className="app-logo" alt="logo" />
       </header>
-      <p>Scrapito release coming soon !</p>
+      <p className="scrape-description">Click to scrape google search results in current page</p>
+      <button className="scrape-button" onClick={() => alert('message sent')}>Scrape</button>
     </div>
   );
 };
