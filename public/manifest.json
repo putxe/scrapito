@@ -15,11 +15,21 @@
     },
     "default_popup": "popup.html"
   },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
   "background": {
     "scripts": [
       "background.js"
     ],
     "persistent": false
   },
-  "permissions": ["*://www.google.com/*", "*://www.google.fr/*"]
+  "permissions": ["tabs", "*://www.google.com/*", "*://www.google.fr/*"]
 }
