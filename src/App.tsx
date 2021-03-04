@@ -11,7 +11,7 @@ const App = () => {
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
       const activeTab = tabs[0];
       chrome.tabs.sendMessage(activeTab.id!, message, (response: ScrapeResponse) => {
-        console.log(response);
+        console.log(response.contentScraped);
       });
    });
   };
