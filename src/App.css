@@ -2,6 +2,7 @@
   text-align: center;
   background-color: #282c34;
   color: white;
+  min-height: 250px;
 }
 
 .app-logo {
@@ -25,10 +26,6 @@
   padding: 10px;
 }
 
-.app-link {
-  color: #61dafb;
-}
-
 @keyframes app-logo-spin {
   from {
     transform: rotate(0deg);
@@ -46,4 +43,16 @@
   background-color: goldenrod;
   color: black;
   cursor: pointer;
+}
+
+.confirm-message {
+  margin: 5px;
+  padding: 10px;
+  color: goldenrod;
+}
+
+.error-message {
+  margin: 5px;
+  padding: 10px;
+  color: red;
 }

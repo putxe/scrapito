@@ -26,6 +26,7 @@ export interface SentToServerSucceeded {
 
 export interface SentToServerFailed {
   type: typeof SENT_TO_SERVER_FAILED;
+  error: Error
 }
 
 export type MessageType = ScrapeStart | ScrapeRequest | ScrapeSucceeded | SentToServerSucceeded | SentToServerFailed;
