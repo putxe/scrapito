@@ -1,0 +1,25 @@
+{
+  "name": "Scrapito",
+  "description": "Scrapito is a browser extension that scrape google search results and send them to a server.",
+  "manifest_version": 2,
+  "version": "1.0.0",
+  "icons": {
+    "16": "icon16.png",
+    "32": "icon32.png",
+    "192": "icon192.png"
+  },
+  "page_action": {
+    "default_icon": {
+      "16": "icon16.png",
+      "32": "icon32.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  },
+  "permissions": ["*://www.google.com/*", "*://www.google.fr/*"]
+}
