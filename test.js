@@ -1,7 +1,7 @@
 window.addEventListener("message", receiveMessage, false)
 
 function receiveMessage(message) {
-  if (message.origin !== "https://linkedin.com") return
+  if (message.origin !== "https://www.linkedin.com") return
   if (!message.link) return
   if (!message.link.startsWith("/in/")) return
   if (!message.type) return
